@@ -77,5 +77,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
 
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.tbuonomo:dotsindicator:4.3'
+
     implementation 'com.google.firebase:firebase-firestore:24.4.1'
 }

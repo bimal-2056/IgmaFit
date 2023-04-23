@@ -53,11 +53,6 @@ open class DashboardItemsListAdapter(
                 Log.d("SearchActivity", "product_id: ${model.product_id}, user_id: ${model.user_id}")
             }
 
-/*            holder.itemView.setOnClickListener {
-                if (onClickListener != null) {
-                    onClickListener!!.onClick(position, model)
-                }
-            }*/
         }
     }
 
