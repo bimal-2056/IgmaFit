@@ -2,8 +2,8 @@ package com.example.rese_yl.ui.fragments
 
 import FirestoreClass
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -14,22 +14,27 @@ import com.example.rese_yl.ui.activities.SearchActivity
 import com.example.rese_yl.ui.activities.SettingsActivity
 import com.example.rese_yl.ui.adapters.DashboardItemsListAdapter
 import com.example.rese_yl.ui.adapters.DashboardItemsPagerAdapter
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import java.util.Timer
 import java.util.TimerTask
 
+
 class DashboardFragment : BaseFragment() {
 
     private var timer: Timer? = null
-    private var currentPage = 0
-    private var mDashboardItemsList = ArrayList<Product>()
+    private var mDashboardItemsList = mutableListOf<String?>()
+    private var currentPosition = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private var timerTask: TimerTask? = null
+    private val DELAY_MS: Long = 3000
+
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
 
-        startAutoSlider()
     }
 
     override fun onCreateView(
@@ -78,12 +83,14 @@ class DashboardFragment : BaseFragment() {
         super.onDestroy()
 
         if(timer!=null){
-            stopAutoSlider()
+            //stopAutoSlider()
         }
     }
 
     override fun onResume() {
         super.onResume()
+
+        startAutoSlide()
 
         getDashboardItemsList()
     }
@@ -93,8 +100,8 @@ class DashboardFragment : BaseFragment() {
 
         FirestoreClass().getDashboardItemsList(this@DashboardFragment)
 
-        val customFont = Typeface.createFromAsset(context?.assets, "Bangers-Regular.ttf")
-        tv_discount.typeface = customFont
+        /*val customFont = Typeface.createFromAsset(context?.assets, "Bangers-Regular.ttf")
+        tv_discount.typeface = customFont*/
     }
 
     fun successDashboardItemsList(dashboardItemsList: ArrayList<Product>) {
@@ -102,13 +109,46 @@ class DashboardFragment : BaseFragment() {
 
 
         if (dashboardItemsList.size > 0) {
-            val randomProducts = dashboardItemsList.shuffled().take(3) // Extract 3 random products
+            if(dashboardItemsList.size > 2){
+                showProgressDialog(resources.getString(R.string.please_wait))
+                val db = FirebaseFirestore.getInstance()
+                val imagesRef: CollectionReference = db.collection("slideshow_images")
+
+                val imageUrls: MutableList<String?> = ArrayList()
+
+                imagesRef.get().addOnSuccessListener { queryDocumentSnapshots ->
+
+                    hideProgressDialog()
+
+                    for (documentSnapshot in queryDocumentSnapshots) {
+                        val imageUrlOne = documentSnapshot.getString("imageurl_one")
+                        val imageUrlTwo = documentSnapshot.getString("imageurl_two")
+                        val imageUrlThree = documentSnapshot.getString("imageurl_three")
+                        imageUrls.add(imageUrlOne)
+                        imageUrls.add(imageUrlThree)
+                        imageUrls.add(imageUrlTwo)
+                    }
+
+                    view_pager.visibility = View.VISIBLE
+                    dots_indicator.visibility = View.VISIBLE
+
+                    mDashboardItemsList = imageUrls
+                    val viewPager: ViewPager2 = view_pager
+                    val adapter = DashboardItemsPagerAdapter(imageUrls)
+                    viewPager.adapter = adapter
+
+                    val dotsIndicator: DotsIndicator = dots_indicator
+                    dotsIndicator.setViewPager2(viewPager)
+
+                }.addOnFailureListener {e ->
+                        hideProgressDialog()
+                         Log.e("Slideshow", "Error getting documents: ", e) }
+
+            }
             rv_dashboard_items.visibility = View.VISIBLE
             tv_no_dashboard_items_found.visibility = View.GONE
-            view_pager.visibility = View.VISIBLE
-            dots_indicator.visibility = View.VISIBLE
-            discount_container.visibility = View.VISIBLE
-            tv_discount.visibility = View.VISIBLE
+            /*discount_container.visibility = View.VISIBLE
+            tv_discount.visibility = View.VISIBLE*/
 
             rv_dashboard_items.layoutManager = GridLayoutManager(activity, 2)
             rv_dashboard_items.setHasFixedSize(true)
@@ -116,39 +156,36 @@ class DashboardFragment : BaseFragment() {
             val dashboardAdapter = DashboardItemsListAdapter(requireActivity(), dashboardItemsList)
             rv_dashboard_items.adapter = dashboardAdapter
 
-            mDashboardItemsList = randomProducts as ArrayList<Product>
-            val viewPager: ViewPager2 = view_pager
-            val adapter = DashboardItemsPagerAdapter(randomProducts)
-            viewPager.adapter = adapter
-
-            val dotsIndicator: DotsIndicator = dots_indicator
-            dotsIndicator.setViewPager2(viewPager)
-
         } else {
             view_pager.visibility = View.GONE
-            discount_container.visibility = View.GONE
             dots_indicator.visibility = View.GONE
             rv_dashboard_items.visibility = View.GONE
-            tv_discount.visibility = View.GONE
             tv_no_dashboard_items_found.visibility = View.VISIBLE
         }
     }
 
-    private fun startAutoSlider() {
-        timer = Timer()
-        timer?.schedule(object : TimerTask() {
+    private fun startAutoSlide() {
+        timerTask = object : TimerTask() {
             override fun run() {
-                requireActivity().runOnUiThread {
-                    if (currentPage == mDashboardItemsList.size) {
-                        currentPage = 0
-                    }
-                    view_pager.setCurrentItem(currentPage++, true)
+                currentPosition = (currentPosition + 1) % 3 // Move to the next slide
+                activity?.runOnUiThread {
+                    view_pager.currentItem = currentPosition
                 }
             }
-        }, 3000)
+        }
+        timer = Timer()
+        timer?.schedule(timerTask, DELAY_MS, DELAY_MS)
     }
-    private fun stopAutoSlider() {
+    private fun stopAutoSlide() {
+        timerTask?.cancel()
         timer?.cancel()
+        timerTask = null
+        timer = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopAutoSlide()
     }
 
 }

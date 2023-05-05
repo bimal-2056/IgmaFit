@@ -54,6 +54,7 @@ class ForgotPasswordActivity : BaseActivity() {
 
         val actionBar = supportActionBar
         if (actionBar != null) {
+            actionBar.title = "Forgot Password"
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }

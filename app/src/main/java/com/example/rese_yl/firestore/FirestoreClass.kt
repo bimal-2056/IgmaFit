@@ -13,6 +13,7 @@ import com.example.rese_yl.ui.fragments.SoldProductsFragment
 import com.example.rese_yl.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -90,6 +91,7 @@ class FirestoreClass {
                     is LoginActivity -> {
                         activity.hideProgressDialog()
                     }
+
                     is SettingsActivity -> {
                         activity.hideProgressDialog()
                     }
@@ -263,6 +265,7 @@ class FirestoreClass {
                     is CartListActivity -> {
                         activity.successProductsListFromFireStore(productsList)
                     }
+
                     is CheckoutActivity -> {
                         activity.successProductsListFromFireStore(productsList)
                     }
@@ -273,6 +276,7 @@ class FirestoreClass {
                     is CartListActivity -> {
                         activity.hideProgressDialog()
                     }
+
                     is CheckoutActivity -> {
                         activity.hideProgressDialog()
                     }
@@ -305,35 +309,6 @@ class FirestoreClass {
                 Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
             }
     }
-
-    //fun getSearchedItemsList(activity: Activity, query: String): ArrayList<Product>? {
-/*        var mProductList: ArrayList<Product>? = null
-        mFireStore.collection(Constants.PRODUCTS)
-            .get()
-            .addOnSuccessListener { document ->
-
-                val productsList: ArrayList<Product> = ArrayList()
-
-                for (i in document.documents) {
-                    val product = i.toObject(Product::class.java)!!
-                        product.product_id = i.id
-                        productsList.add(product)
-                        if(product.title == query){
-                            mProductList = productsList
-                        }
-                }
-
-            }
-            .addOnFailureListener { e ->
-                e.printStackTrace()
-                return@addOnFailureListener
-            }
-        return mProductList
-        }
-        */
-
-
-
 
     fun deleteProduct(fragment: ProductsFragment, productId: String) {
 
@@ -447,6 +422,7 @@ class FirestoreClass {
                     is CartListActivity -> {
                         activity.successCartItemsList(list)
                     }
+
                     is CheckoutActivity -> {
                         activity.successCartItemsList(list)
                     }
@@ -524,7 +500,10 @@ class FirestoreClass {
             }
     }
 
-    fun addAddress(activity: AddEditAddressActivity, addressInfo: com.example.rese_yl.models.Address) {
+    fun addAddress(
+        activity: AddEditAddressActivity,
+        addressInfo: com.example.rese_yl.models.Address
+    ) {
 
         mFireStore.collection(Constants.ADDRESSES)
             .document()
@@ -569,7 +548,11 @@ class FirestoreClass {
             }
     }
 
-    fun updateAddress(activity: AddEditAddressActivity, addressInfo: com.example.rese_yl.models.Address, addressId: String) {
+    fun updateAddress(
+        activity: AddEditAddressActivity,
+        addressInfo: com.example.rese_yl.models.Address,
+        addressId: String
+    ) {
 
         mFireStore.collection(Constants.ADDRESSES)
             .document(addressId)
@@ -692,66 +675,68 @@ class FirestoreClass {
     fun getMyOrdersList(fragment: OrdersFragment) {
         mFireStore.collection(Constants.ORDERS)
             .whereEqualTo(Constants.USER_ID, getCurrentUserID())
-            .get()
-            .addOnSuccessListener { document ->
-                Log.e(fragment.javaClass.simpleName, document.documents.toString())
-                val list: ArrayList<Order> = ArrayList()
-
-                for (i in document.documents) {
-
-                    val orderItem = i.toObject(Order::class.java)!!
-                    orderItem.id = i.id
-
-                    list.add(orderItem)
-                }
-
-                fragment.populateOrdersListInUI(list)
-            }
-            .addOnFailureListener { e ->
-
-                fragment.hideProgressDialog()
-
-                Log.e(fragment.javaClass.simpleName, "Error while getting the orders list.", e)
-            }
-    }
-
-    fun getSoldProductsList(fragment: SoldProductsFragment) {
-        mFireStore.collection(Constants.SOLD_PRODUCTS)
-            .whereEqualTo(Constants.USER_ID, getCurrentUserID())
+            .orderBy("order_datetime", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { document ->
                 Log.e(fragment.javaClass.simpleName, document.documents.toString())
 
-                val list: ArrayList<SoldProduct> = ArrayList()
+/*                document.documents.forEach { doc ->
+                    val orderedProduct = doc.toObject(Order::class.java)!!
+                    Log.e("Order", "Sold Product: ${orderedProduct.order_datetime}") }*/
 
-                for (i in document.documents) {
+                    val list: ArrayList<Order> = ArrayList()
 
-                    val soldProduct = i.toObject(SoldProduct::class.java)!!
-                    soldProduct.id = i.id
+                    for (i in document.documents) {
 
+                        val orderItem = i.toObject(Order::class.java)!!
+                        orderItem.id = i.id
 
-                    list.add(soldProduct)
+                        list.add(orderItem)
+                    }
+
+                    fragment.populateOrdersListInUI(list)
                 }
+                    .addOnFailureListener { e ->
 
-                fragment.successSoldProductsList(list)
+                        fragment.hideProgressDialog()
+
+                        Log.e(
+                            fragment.javaClass.simpleName,
+                            "Error while getting the orders list.",
+                            e
+                        )
+                    }
             }
-            .addOnFailureListener { e ->
-                fragment.hideProgressDialog()
 
-                Log.e(
-                    fragment.javaClass.simpleName,
-                    "Error while getting the list of sold products.",
-                    e
-                )
-            }
-    }
+        fun getSoldProductsList(fragment: SoldProductsFragment) {
+            mFireStore.collection(Constants.SOLD_PRODUCTS)
+                .whereEqualTo(Constants.USER_ID, getCurrentUserID())
+                .orderBy("order_date", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener { document ->
+                    Log.e(fragment.javaClass.simpleName, document.documents.toString())
 
-/*    fun getCurrentUserId(): String{
-        var currentUser = FirebaseAuth.getInstance().currentUser
-        var currentUserId = ""
-        if(currentUser != null){
-            currentUserId = currentUser.uid
+                    val list: ArrayList<SoldProduct> = ArrayList()
+
+                    for (i in document.documents) {
+
+                        val soldProduct = i.toObject(SoldProduct::class.java)!!
+                        soldProduct.id = i.id
+
+                        list.add(soldProduct)
+                    }
+
+                    fragment.successSoldProductsList(list)
+                }
+                .addOnFailureListener { e ->
+                    fragment.hideProgressDialog()
+
+                    Log.e(
+                        fragment.javaClass.simpleName,
+                        "Error while getting the list of sold products.",
+                        e
+                    )
+                }
         }
-        return currentUserId
-    }*/
-}
+
+    }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.AddEditAddressActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_add_edit_address_activity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -19,15 +19,13 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingStart="@dimen/toolbar_title_paddingStart"
-            android:paddingEnd="0dp"
+            android:gravity="center_vertical"
             android:text="@string/title_add_address"
             android:textColor="@color/white"
             android:textSize="@dimen/toolbar_title_text_size"
             android:textStyle="bold" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
         android:layout_width="match_parent"

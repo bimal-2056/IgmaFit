@@ -3,7 +3,10 @@ package com.example.rese_yl.ui.activities
 import BaseActivity
 import FirestoreClass
 import android.content.Intent
+import android.graphics.Matrix
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -13,6 +16,8 @@ import com.example.rese_yl.models.Product
 import com.example.rese_yl.utils.Constants
 import com.example.rese_yl.utils.GlideLoader
 import kotlinx.android.synthetic.main.activity_product_details.*
+import java.lang.Float.max
+import java.lang.Float.min
 
 class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
 
@@ -21,6 +26,15 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
     private var mProductId: String = ""
 
     private var mProductOwnerId: String = ""
+
+    private var matrix = Matrix()
+    private var scaleGestureDetector: ScaleGestureDetector? = null
+    private var scaleFactor = 1.0f
+
+    private var lastX = 0f
+    private var lastY = 0f
+    private var isDragging = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -52,9 +66,51 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
 
         getProductDetails()
 
+        scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
+        iv_product_detail_image.setOnTouchListener { view, event ->
+            if (event.pointerCount == 1 && scaleFactor > 1.0f) {
+                handleDrag(view, event)
+            }
+            scaleGestureDetector?.onTouchEvent(event)
+            true
+        }
+
     }
 
-    override fun onClick(v: View?) {
+    private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+        override fun onScale(detector: ScaleGestureDetector): Boolean {
+            scaleFactor *= detector.scaleFactor
+            scaleFactor = max(0.1f, min(scaleFactor, 10.0f))
+            matrix.setScale(scaleFactor, scaleFactor)
+            iv_product_detail_image.imageMatrix = matrix
+            return true
+        }
+    }
+
+    private fun handleDrag(view: View, event: MotionEvent) {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                isDragging = true
+                lastX = event.x
+                lastY = event.y
+            }
+
+            MotionEvent.ACTION_MOVE -> {
+                val deltaX = event.x - lastX
+                val deltaY = event.y - lastY
+                matrix.postTranslate(deltaX, deltaY)
+                iv_product_detail_image.imageMatrix = matrix
+                lastX = event.x
+                lastY = event.y
+            }
+
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                isDragging = false
+            }
+        }
+    }
+
+        override fun onClick(v: View?) {
         if (v != null) {
             when (v.id) {
 
@@ -65,6 +121,10 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
                 R.id.btn_go_to_cart->{
                     startActivity(Intent(this@ProductDetailsActivity, CartListActivity::class.java))
                 }
+
+/*                R.id.iv_product_detail_image ->{
+                        iv_product_detail_image.setScale(1.5f, true)
+                }*/
             }
         }
     }

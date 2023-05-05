@@ -36,9 +36,7 @@
                     android:id="@+id/tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/toolbar_title_paddingStart"
-                    android:paddingEnd="0dp"
+                    android:gravity="center_vertical"
                     android:text="@string/title_settings"
                     android:textColor="@color/white"
                     android:textSize="@dimen/toolbar_title_text_size"
@@ -96,7 +94,7 @@
             android:layout_marginTop="@dimen/settings_name_marginTop"
             android:textColor="@color/colorDarkGrey"
             android:textSize="@dimen/settings_name_textSize"
-            tools:text="Denis Panjuta" />
+            tools:text="Upreti King" />
 
         <com.example.rese_yl.utils.RSYTextView
             android:id="@+id/tv_gender"
@@ -118,7 +116,7 @@
             android:layout_marginTop="@dimen/settings_info_marginTop"
             android:textColor="@color/colorSecondaryTheme"
             android:textSize="@dimen/settings_info_textSize"
-            tools:text="denis.panjuta@gmail.com" />
+            tools:text="upretiking@gmail.com" />
 
         <com.example.rese_yl.utils.RSYTextView
             android:id="@+id/tv_mobile_number"

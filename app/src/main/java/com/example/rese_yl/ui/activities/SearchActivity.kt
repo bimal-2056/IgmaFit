@@ -49,11 +49,6 @@ class SearchActivity : BaseActivity() {
                                     products.add(it)
                                 }
                                 Log.d("firebase", "Query submitted: $product")
-                                Toast.makeText(
-                                    this@SearchActivity,
-                                    "${product?.title} found",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                             }
 
                             if (products.isEmpty()) {

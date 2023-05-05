@@ -19,9 +19,7 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingStart="@dimen/toolbar_title_paddingStart"
-            android:paddingEnd="0dp"
+            android:gravity="center_vertical"
             android:text="@string/title_sold_product_details"
             android:textColor="@color/white"
             android:textSize="@dimen/toolbar_title_text_size"
@@ -109,7 +107,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorSecondaryTheme"
                         android:textSize="@dimen/sold_details_label_value_textSize"
-                        tools:text="20 Oct 2020" />
+                        tools:text="01 Baisakh 2080" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -178,7 +176,7 @@
                         android:textColor="@color/item_value_text_color"
                         android:textSize="@dimen/sold_details_value_textSize"
                         android:textStyle="bold"
-                        tools:text="$100.00" />
+                        tools:text="NPR 100.00" />
                 </LinearLayout>
 
                 <com.example.rese_yl.utils.RSYTextView
@@ -237,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/item_value_text_color"
                     android:textSize="@dimen/item_address_name_textSize"
-                    tools:text="Denis Panjuta" />
+                    tools:text="Upreti King" />
 
                 <com.example.rese_yl.utils.RSYTextView
                     android:id="@+id/tv_sold_details_address"
@@ -273,7 +271,7 @@
                     android:layout_marginTop="@dimen/address_details_marginTop"
                     android:textColor="@color/item_value_text_color"
                     android:textSize="@dimen/address_details_textSize"
-                    tools:text="+64 123456789" />
+                    tools:text="+977 123456789" />
             </LinearLayout>
 
             <com.example.rese_yl.utils.RSYTextView
@@ -316,7 +314,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorSecondaryTheme"
                         android:textSize="@dimen/sold_details_label_value_textSize"
-                        tools:text="$100" />
+                        tools:text="NPR 600" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -339,7 +337,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorSecondaryTheme"
                         android:textSize="@dimen/sold_details_label_value_textSize"
-                        tools:text="$10.0" />
+                        tools:text="NPR 100" />
                 </LinearLayout>
 
                 <LinearLayout
