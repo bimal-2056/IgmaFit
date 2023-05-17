@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:contentDescription="Image"
             android:scaleType="fitXY"
-            android:src="@drawable/gradient_rese_yll" />
+            android:src="@drawable/gradient_igma_fit" />
 
         <ImageView
             android:layout_width="@dimen/auth_logo_width_size"
@@ -31,7 +31,7 @@
             android:src="@drawable/ic_b" />
     </FrameLayout>
 
-    <com.example.rese_yl.utils.RSYTextViewBold
+    <com.example.igma_fit.utils.RSYTextViewBold
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-        <com.example.rese_yl.utils.RSYLEditText
+        <com.example.igma_fit.utils.RSYLEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_email">
 
-        <com.example.rese_yl.utils.RSYLEditText
+        <com.example.igma_fit.utils.RSYLEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             tools:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.example.rese_yl.utils.RSYTextView
+    <com.example.igma_fit.utils.RSYTextView
         android:id="@+id/tv_forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_password" />
 
-    <com.example.rese_yl.utils.RSYButton
+    <com.example.igma_fit.utils.RSYButton
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_login">
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_don_t_have_an_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
             android:textColor="@color/colorSecondaryTheme"
             android:textSize="@dimen/lbl_text_view_textSize" />
 
-        <com.example.rese_yl.utils.RSYTextViewBold
+        <com.example.igma_fit.utils.RSYTextViewBold
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

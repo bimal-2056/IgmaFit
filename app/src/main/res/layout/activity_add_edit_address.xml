@@ -52,7 +52,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_full_name">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_phone_number">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_address">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_zip_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_zip_code">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_additional_note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_additional_note">
 
-                <com.example.rese_yl.utils.RSYRadioButton
+                <com.example.igma_fit.utils.RSYRadioButton
                     android:id="@+id/rb_home"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/add_edit_address_radio_button_height"
@@ -185,7 +185,7 @@
                     android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:textStyle="bold" />
 
-                <com.example.rese_yl.utils.RSYRadioButton
+                <com.example.igma_fit.utils.RSYRadioButton
                     android:id="@+id/rb_office"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/add_edit_address_radio_button_height"
@@ -199,7 +199,7 @@
                     android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:textStyle="bold" />
 
-                <com.example.rese_yl.utils.RSYRadioButton
+                <com.example.igma_fit.utils.RSYRadioButton
                     android:id="@+id/rb_other"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/add_edit_address_radio_button_height"
@@ -227,7 +227,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rg_type">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_other_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.example.rese_yl.utils.RSYButton
+            <com.example.igma_fit.utils.RSYButton
                 android:id="@+id/btn_submit_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

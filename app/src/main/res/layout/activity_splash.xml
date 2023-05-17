@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_rese_yll"
+    android:background="@drawable/gradient_igma_fit"
     tools:context=".ui.activities.SplashActivity">
 
     <FrameLayout
@@ -31,13 +31,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fl_header_image" />
 
-    <com.example.rese_yl.utils.RSYTextViewBold
+    <com.example.igma_fit.utils.RSYTextViewBold
         android:id="@+id/tv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
-        android:text="ReSe-YL"
-        android:textColor="@color/LogoColor"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
         android:textSize="@dimen/splash_title_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

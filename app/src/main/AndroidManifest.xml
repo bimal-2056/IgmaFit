@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.rese_yl">
+    package="com.example.igma_fit">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -13,70 +13,70 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ReSeYL"
+        android:theme="@style/Theme.IgmaFit"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.SearchActivity"
+            android:name="com.example.igma_fit.ui.activities.SearchActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.SoldProductDetailsActivity"
+            android:name="com.example.igma_fit.ui.activities.SoldProductDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.MyOrderDetailsActivity"
+            android:name="com.example.igma_fit.ui.activities.MyOrderDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.CheckoutActivity"
+            android:name="com.example.igma_fit.ui.activities.CheckoutActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.AddEditAddressActivity"
+            android:name="com.example.igma_fit.ui.activities.AddEditAddressActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.AddressListActivity"
+            android:name="com.example.igma_fit.ui.activities.AddressListActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.CartListActivity"
+            android:name="com.example.igma_fit.ui.activities.CartListActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.ProductDetailsActivity"
+            android:name="com.example.igma_fit.ui.activities.ProductDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.AddProductActivity"
+            android:name="com.example.igma_fit.ui.activities.AddProductActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.SettingsActivity"
+            android:name="com.example.igma_fit.ui.activities.SettingsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.DashboardActivity"
+            android:name="com.example.igma_fit.ui.activities.DashboardActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activities.UserProfileActivity"
+            android:name="com.example.igma_fit.ui.activities.UserProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.ForgotPasswordActivity"
+            android:name="com.example.igma_fit.ui.activities.ForgotPasswordActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
@@ -84,17 +84,17 @@
             android:name=".ui.activities.BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.RegisterActivity"
+            android:name="com.example.igma_fit.ui.activities.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.LoginActivity"
+            android:name="com.example.igma_fit.ui.activities.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.activities.SplashActivity"
+            android:name="com.example.igma_fit.ui.activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme">
@@ -105,7 +105,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="com.example.igma_fit.ui.activities.MainActivity"
             android:exported="false" />
     </application>
 

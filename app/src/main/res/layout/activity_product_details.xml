@@ -64,7 +64,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_product_detail_image">
 
-                <com.example.rese_yl.utils.RSYTextViewBold
+                <com.example.igma_fit.utils.RSYTextViewBold
                     android:id="@+id/tv_product_details_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                     android:textSize="@dimen/product_details_title_textSize"
                     tools:text="Product Title" />
 
-                <com.example.rese_yl.utils.RSYTextView
+                <com.example.igma_fit.utils.RSYTextView
                     android:id="@+id/tv_product_details_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     tools:text="NPR 1000" />
             </LinearLayout>
 
-            <com.example.rese_yl.utils.RSYTextViewBold
+            <com.example.igma_fit.utils.RSYTextViewBold
                 android:id="@+id/tv_product_details_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_product_details_title_price" />
 
-            <com.example.rese_yl.utils.RSYTextView
+            <com.example.igma_fit.utils.RSYTextView
                 android:id="@+id/tv_product_details_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_product_details_description">
 
-                <com.example.rese_yl.utils.RSYTextViewBold
+                <com.example.igma_fit.utils.RSYTextViewBold
                     android:id="@+id/tv_product_details_quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:textColor="@color/item_value_text_color"
                     android:textSize="@dimen/product_details_label_textSize" />
 
-                <com.example.rese_yl.utils.RSYTextView
+                <com.example.igma_fit.utils.RSYTextView
                     android:id="@+id/tv_product_details_stock_quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     tools:text="5" />
             </LinearLayout>
 
-            <com.example.rese_yl.utils.RSYButton
+            <com.example.igma_fit.utils.RSYButton
                 android:id="@+id/btn_add_to_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                 app:layout_constraintTop_toBottomOf="@id/ll_product_details_quantity"
                 tools:visibility="visible" />
 
-            <com.example.rese_yl.utils.RSYButton
+            <com.example.igma_fit.utils.RSYButton
                 android:id="@+id/btn_go_to_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

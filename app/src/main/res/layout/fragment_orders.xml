@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.rese_yl.utils.RSYTextView
+    <com.example.igma_fit.utils.RSYTextView
         android:id="@+id/tv_no_orders_found"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -10,8 +10,8 @@
 
     <color name="LogoColor">#574856</color>
 
-    <color name="colorTheme">#8bd2df</color>
-    <color name="colorSecondaryTheme">#de978a</color>
+    <color name="colorTheme">#5ce1e6</color>
+    <color name="colorSecondaryTheme">#ed19fd</color>
     
     <color name="colorSnackBarError">#F72400</color>
     <color name="colorSnackBarSuccess">#8BC34A</color>

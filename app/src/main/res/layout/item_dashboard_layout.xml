@@ -19,7 +19,7 @@
         android:contentDescription="@string/content_description"
         android:minHeight="@dimen/item_dashboard_image_height"
         android:scaleType="fitXY"
-        android:src="@drawable/gradient_rese_yll" />
+        android:src="@drawable/gradient_igma_fit" />
 
     <View
         android:id="@+id/view_divider"
@@ -40,7 +40,7 @@
         android:paddingEnd="@dimen/dashboard_item_paddingStartEnd"
         android:paddingBottom="@dimen/dashboard_item_paddingTopBottom">
 
-        <com.example.rese_yl.utils.RSYTextViewBold
+        <com.example.igma_fit.utils.RSYTextViewBold
             android:id="@+id/tv_dashboard_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             android:textStyle="bold"
             tools:text="Item Name" />
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_dashboard_item_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

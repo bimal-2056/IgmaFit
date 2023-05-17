@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/content_description"
                 android:scaleType="fitXY"
-                android:src="@drawable/gradient_rese_yll" />
+                android:src="@drawable/gradient_igma_fit" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_settings_activity"
@@ -68,7 +68,7 @@
                 android:background="@drawable/user_image_background" />
         </FrameLayout>
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:textColor="@color/colorSecondaryTheme"
             android:textSize="@dimen/settings_edit_label_textSize" />
 
-        <com.example.rese_yl.utils.RSYTextViewBold
+        <com.example.igma_fit.utils.RSYTextViewBold
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             android:textSize="@dimen/settings_name_textSize"
             tools:text="Upreti King" />
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             android:textSize="@dimen/settings_info_textSize"
             tools:text="Male" />
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             android:textSize="@dimen/settings_info_textSize"
             tools:text="upretiking@gmail.com" />
 
-        <com.example.rese_yl.utils.RSYTextView
+        <com.example.igma_fit.utils.RSYTextView
             android:id="@+id/tv_mobile_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/settings_address_padding">
 
-            <com.example.rese_yl.utils.RSYTextView
+            <com.example.igma_fit.utils.RSYTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/settings_lbl_addresses_margin"
@@ -157,7 +157,7 @@
 
         </LinearLayout>
 
-        <com.example.rese_yl.utils.RSYButton
+        <com.example.igma_fit.utils.RSYButton
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

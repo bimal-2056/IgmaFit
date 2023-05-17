@@ -80,7 +80,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fl_user_image">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_first_name">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_last_name">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_email">
 
-                <com.example.rese_yl.utils.RSYLEditText
+                <com.example.igma_fit.utils.RSYLEditText
                     android:id="@+id/et_mobile_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_mobile_number">
 
-                <com.example.rese_yl.utils.RSYRadioButton
+                <com.example.igma_fit.utils.RSYRadioButton
                     android:id="@+id/rb_male"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -189,7 +189,7 @@
                     android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:textStyle="bold" />
 
-                <com.example.rese_yl.utils.RSYRadioButton
+                <com.example.igma_fit.utils.RSYRadioButton
                     android:id="@+id/rb_female"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -203,7 +203,7 @@
                     android:textStyle="bold" />
             </RadioGroup>
 
-            <com.example.rese_yl.utils.RSYButton
+            <com.example.igma_fit.utils.RSYButton
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
