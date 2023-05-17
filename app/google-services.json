@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "332046617031",
+    "project_id": "igmafit",
+    "storage_bucket": "igmafit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332046617031:android:9910897c6cbb1becd6f1e2",
+        "android_client_info": {
+          "package_name": "com.example.igma_fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332046617031-cdjqplvabks99d2ko2mirdcl0tufsh7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPalYmLdBV6lZTw3rS8Zh85nPCkciJd2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332046617031-cdjqplvabks99d2ko2mirdcl0tufsh7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
